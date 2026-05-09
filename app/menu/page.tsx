@@ -108,9 +108,9 @@ export default function MenuPage() {
             Order online for pickup at Blossom Market Hall.
             The oxtail sells out — order ahead.
           </p>
-          <Link href="tel:+16267704004" className="btn-primary" style={{ fontSize: '1rem' }}>
+          <a href="tel:+16267704004" className="btn-primary" style={{ fontSize: '1rem' }}>
             Call to Order: (626) 770-4004
-          </Link>
+          </a>
           <p
             style={{
               marginTop: '1.25rem',

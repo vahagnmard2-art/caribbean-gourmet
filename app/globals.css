@@ -164,6 +164,15 @@
     animation-play-state: paused;
   }
 
+  /* Hide scrollbars on filter tabs (cross-browser) */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Reusable hover-state helpers (for server components that can't use JS event handlers) */
   .gold-link {
     color: var(--color-gold);

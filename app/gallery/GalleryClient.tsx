@@ -93,6 +93,7 @@ export function GalleryClient() {
     <div style={{ paddingBlock: '2.5rem' }}>
       {/* Filter tabs */}
       <div
+        className="scrollbar-none"
         style={{
           position: 'sticky',
           top: '4.5rem',
@@ -100,7 +101,6 @@ export function GalleryClient() {
           backgroundColor: 'var(--color-molasses)',
           borderBottom: '1px solid var(--color-border-dark)',
           overflowX: 'auto',
-          scrollbarWidth: 'none',
         }}
       >
         <div className="container" style={{ display: 'flex', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>

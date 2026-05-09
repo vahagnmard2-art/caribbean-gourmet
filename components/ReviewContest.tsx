@@ -48,7 +48,7 @@ export function ReviewContest() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start' }}>
           <a
-            href="https://g.page/r/caribbeangourmet/review"
+            href="https://www.google.com/maps/search/Caribbean+Gourmet+Blossom+Market+Hall+San+Gabriel+CA/@34.0992,-118.1082,17z"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"

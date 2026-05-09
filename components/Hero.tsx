@@ -7,7 +7,7 @@ export function Hero() {
       aria-label="Caribbean Gourmet — Guyanese and Caribbean food in San Gabriel"
       style={{
         position: 'relative',
-        minHeight: '100svh',
+        minHeight: 'max(100vh, 100svh)',
         display: 'flex',
         alignItems: 'flex-end',
         paddingBottom: 'clamp(4rem, 8vw, 7rem)',
@@ -17,7 +17,7 @@ export function Hero() {
       {/* Hero image — swap src for real food photo */}
       <Image
         src="/images/hero.jpg"
-        alt="Caribbean Gourmet slow-braised oxtail stew served with rice, caramelized plantains, and stewed cabbage"
+        alt="Caribbean Gourmet jerk chicken with smoky char, caramelized plantains, rice and peas at Blossom Market Hall"
         fill
         sizes="100vw"
         style={{ objectFit: 'cover', objectPosition: 'center' }}

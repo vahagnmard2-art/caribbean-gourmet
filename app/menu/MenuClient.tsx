@@ -26,6 +26,7 @@ export function MenuClient() {
     <div style={{ paddingBlock: '2.5rem' }}>
       {/* Sticky filter bar */}
       <div
+        className="scrollbar-none"
         style={{
           position: 'sticky',
           top: '4.5rem',
@@ -33,7 +34,6 @@ export function MenuClient() {
           backgroundColor: 'var(--color-molasses)',
           borderBottom: '1px solid var(--color-border-dark)',
           overflowX: 'auto',
-          scrollbarWidth: 'none',
         }}
       >
         <div
@@ -210,8 +210,9 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
                   color: 'var(--color-coconut)',
                   lineHeight: 1.2,
                 }}
-                dangerouslySetInnerHTML={{ __html: item.name }}
-              />
+              >
+                {item.name}
+              </h3>
               {item.price !== null && (
                 <span
                   style={{
@@ -235,8 +236,9 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
                 flexGrow: 1,
                 marginBottom: item.tags.length > 0 ? '1rem' : 0,
               }}
-              dangerouslySetInnerHTML={{ __html: item.description }}
-            />
+            >
+              {item.description}
+            </p>
 
             {item.tags.length > 0 && (
               <div style={{ display: 'flex', gap: '0.375rem', flexWrap: 'wrap' }}>

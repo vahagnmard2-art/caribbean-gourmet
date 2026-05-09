@@ -153,7 +153,7 @@ export function CateringForm() {
         <div>
           <label htmlFor="cf-name" style={labelStyle}>Full Name *</label>
           <input
-            id="cf-name" type="text" required
+            id="cf-name" type="text" required autoComplete="name"
             placeholder="Your name"
             value={form.name}
             onChange={(e) => handleChange('name', e.target.value)}
@@ -164,7 +164,7 @@ export function CateringForm() {
         <div>
           <label htmlFor="cf-email" style={labelStyle}>Email Address *</label>
           <input
-            id="cf-email" type="email" required
+            id="cf-email" type="email" required autoComplete="email"
             placeholder="your@email.com"
             value={form.email}
             onChange={(e) => handleChange('email', e.target.value)}
@@ -179,7 +179,7 @@ export function CateringForm() {
         <div>
           <label htmlFor="cf-phone" style={labelStyle}>Phone Number *</label>
           <input
-            id="cf-phone" type="tel" required
+            id="cf-phone" type="tel" required autoComplete="tel"
             placeholder="(555) 555-5555"
             value={form.phone}
             onChange={(e) => handleChange('phone', e.target.value)}

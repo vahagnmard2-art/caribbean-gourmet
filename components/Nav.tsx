@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
 const links = [
@@ -11,6 +12,7 @@ const links = [
 ]
 
 export function Nav() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -20,11 +22,9 @@ export function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
-    if (open) setOpen(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    setOpen(false)
+  }, [pathname])
 
   return (
     <header

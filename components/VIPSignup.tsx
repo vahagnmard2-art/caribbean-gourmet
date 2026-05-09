@@ -90,6 +90,7 @@ export function VIPSignup() {
                 id="vip-email"
                 type="email"
                 required
+                autoComplete="email"
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

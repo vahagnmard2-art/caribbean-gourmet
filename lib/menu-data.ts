@@ -57,7 +57,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'plates',
     tags: ['vegan', 'halal'],
-    image: '/images/dish-vegan-curry.jpg',
+    image: '/images/dish-curry-roti.jpg',
     imageAlt: 'Vegan Caribbean curry served with freshly rolled roti at Caribbean Gourmet',
   },
 
@@ -70,7 +70,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'patties',
     tags: ['halal'],
-    image: '/images/dish-beef-patty.jpg',
+    image: '/images/gallery/patties-tray.jpg',
     imageAlt: 'Jamaican-style beef patty with flaky crust at Caribbean Gourmet',
   },
   {
@@ -80,7 +80,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'patties',
     tags: ['halal'],
-    image: '/images/dish-chicken-patty.jpg',
+    image: '/images/gallery/patties-tray.jpg',
     imageAlt: 'Caribbean chicken patty at Caribbean Gourmet San Gabriel',
   },
   {
@@ -90,7 +90,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'patties',
     tags: ['vegan'],
-    image: '/images/dish-veggie-patty.jpg',
+    image: '/images/gallery/cheese-roll-bite.jpg',
     imageAlt: 'Caribbean vegetarian patty at Caribbean Gourmet',
   },
 
@@ -114,7 +114,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'pastries',
     tags: [],
-    image: '/images/dish-pine-tart.jpg',
+    image: '/images/gallery/pine-tarts.jpg',
     imageAlt: 'Guyanese pineapple tart pastry at Caribbean Gourmet',
   },
   {
@@ -125,7 +125,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'pastries',
     tags: [],
-    image: '/images/dish-currant-roll.jpg',
+    image: '/images/gallery/pine-tarts.jpg',
     imageAlt: 'Guyanese currant roll pastry at Caribbean Gourmet',
   },
   {
@@ -136,7 +136,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'pastries',
     tags: ['gluten-free'],
-    image: '/images/dish-cassava-pone.jpg',
+    image: '/images/dish-cheese-roll.jpg',
     imageAlt: 'Traditional Guyanese cassava pone at Caribbean Gourmet San Gabriel',
   },
   {
@@ -146,7 +146,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'pastries',
     tags: [],
-    image: '/images/dish-cheddar-scone.jpg',
+    image: '/images/gallery/pine-tarts.jpg',
     imageAlt: 'Sharp cheddar scone baked fresh at Caribbean Gourmet',
   },
 
@@ -159,7 +159,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'specials',
     tags: ['vegan'],
-    image: '/images/dish-doubles.jpg',
+    image: '/images/dish-curry-roti.jpg',
     imageAlt: 'Trinidadian doubles with curried chickpeas and chutney at Caribbean Gourmet',
     weekendOnly: true,
   },
@@ -171,19 +171,19 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'specials',
     tags: ['halal', 'gluten-free'],
-    image: '/images/dish-crab-soup.jpg',
+    image: '/images/gallery/oxtail-closeup.jpg',
     imageAlt: 'Caribbean crab soup at Caribbean Gourmet San Gabriel',
     weekendOnly: true,
   },
   {
     id: 'mac-cheese',
-    name: 'Baked Mac &amp; Cheese',
+    name: 'Baked Mac & Cheese',
     description:
       'A full pan, baked to order on weekends. Caribbean-style — richer, creamier, with a golden crust.',
     price: null,
     category: 'specials',
     tags: [],
-    image: '/images/dish-mac-cheese.jpg',
+    image: '/images/gallery/catering-spread.jpg',
     imageAlt: 'Caribbean baked mac and cheese at Caribbean Gourmet',
     weekendOnly: true,
   },
@@ -197,7 +197,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'beverages',
     tags: ['vegan', 'gluten-free'],
-    image: '/images/drink-sorrel.jpg',
+    image: '/images/gallery/sorrel-drinks.jpg',
     imageAlt: 'Caribbean sorrel hibiscus drink at Caribbean Gourmet',
   },
   {
@@ -207,7 +207,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'beverages',
     tags: ['vegan', 'gluten-free'],
-    image: '/images/drink-tamarind.jpg',
+    image: '/images/gallery/sorrel-drinks.jpg',
     imageAlt: 'Caribbean tamarind drink at Caribbean Gourmet',
   },
   {
@@ -218,7 +218,7 @@ export const menuItems: MenuItem[] = [
     price: null,
     category: 'beverages',
     tags: ['vegan', 'gluten-free'],
-    image: '/images/drink-soursop.jpg',
+    image: '/images/gallery/sorrel-drinks.jpg',
     imageAlt: 'Fresh soursop juice at Caribbean Gourmet San Gabriel',
   },
 ]

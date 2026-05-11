@@ -24,6 +24,7 @@ export function VIPSignup() {
 
   return (
     <section
+      id="vip"
       aria-labelledby="vip-heading"
       style={{
         paddingBlock: 'clamp(4rem, 8vw, 7rem)',

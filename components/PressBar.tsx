@@ -36,9 +36,9 @@ export function PressBar() {
                 style={{
                   display: 'block',
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1.1rem',
+                  fontSize: '1.0625rem',
                   fontWeight: 700,
-                  color: 'rgba(250,248,242,0.9)',
+                  color: 'var(--color-coconut)',
                 }}
               >
                 {outlet}
@@ -47,7 +47,7 @@ export function PressBar() {
                 style={{
                   display: 'block',
                   fontFamily: 'var(--font-ui)',
-                  fontSize: '0.6875rem',
+                  fontSize: '0.75rem',
                   fontWeight: 600,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
@@ -75,7 +75,7 @@ export function PressBar() {
               fontFamily: 'var(--font-serif)',
               fontSize: 'clamp(1.1rem, 2.5vw, 1.375rem)',
               fontStyle: 'italic',
-              color: 'rgba(250,248,242,0.92)',
+              color: 'var(--color-coconut)',
               lineHeight: 1.5,
               marginBottom: '0.75rem',
             }}
@@ -86,7 +86,7 @@ export function PressBar() {
           <footer
             style={{
               fontFamily: 'var(--font-ui)',
-              fontSize: '0.8125rem',
+              fontSize: '0.875rem',
               fontWeight: 600,
               letterSpacing: '0.06em',
               color: 'var(--color-gold)',

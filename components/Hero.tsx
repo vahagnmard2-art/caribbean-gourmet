@@ -21,7 +21,7 @@ export function Hero() {
         fill
         sizes="100vw"
         style={{ objectFit: 'cover', objectPosition: 'center' }}
-        preload
+        priority
       />
 
       {/* Gradient overlay: food visible at top, text legible at bottom */}
@@ -93,7 +93,7 @@ export function Hero() {
             marginTop: '2rem',
             fontFamily: 'var(--font-ui)',
             fontSize: '0.875rem',
-            color: 'rgba(250,248,242,0.7)',
+            color: 'var(--color-text-body-compact)',
             letterSpacing: '0.03em',
           }}
         >

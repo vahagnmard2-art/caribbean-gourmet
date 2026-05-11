@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
+const resend = new Resend(process.env.RESEND_API_KEY)
+
 export async function POST(request: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY)
   try {
     const body = await request.json()
     const { name, email, phone, eventType, date, guestCount, dietary, message } = body
@@ -11,7 +12,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const dietaryText = dietary?.length > 0 ? dietary.join(', ') : 'None specified'
+    const safeD = Array.isArray(dietary) ? dietary : []
+    const dietaryText = safeD.length > 0 ? safeD.join(', ') : 'None specified'
 
     // Notify Yonette
     await resend.emails.send({

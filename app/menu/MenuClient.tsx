@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import Image from 'next/image'
 import { menuItems, categoryLabels, dietaryLabels, type MenuCategory } from '@/lib/menu-data'
 
 const ALL = 'all' as const
@@ -135,62 +134,26 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
             opacity: item.soldOut ? 0.5 : 1,
           }}
         >
-          <div style={{ position: 'relative', aspectRatio: '4/3' }}>
-            <Image
-              src={item.image}
-              alt={item.imageAlt}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              style={{ objectFit: 'cover' }}
-            />
+          <div style={{ padding: '1.25rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
             {item.weekendOnly && (
               <span
                 style={{
-                  position: 'absolute',
-                  top: '0.75rem',
-                  right: '0.75rem',
+                  alignSelf: 'flex-start',
+                  marginBottom: '0.5rem',
                   backgroundColor: 'var(--color-saffron)',
                   color: 'var(--color-coconut)',
                   fontFamily: 'var(--font-ui)',
-                  fontSize: '0.75rem',
+                  fontSize: '0.6875rem',
                   fontWeight: 700,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  padding: '0.25rem 0.625rem',
+                  padding: '0.2rem 0.5rem',
                   borderRadius: '3px',
                 }}
               >
                 Fri–Sun
               </span>
             )}
-            {item.soldOut && (
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: 'rgba(13,7,2,0.6)',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-ui)',
-                    fontSize: '0.875rem',
-                    fontWeight: 700,
-                    color: 'var(--color-coconut)',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Sold Out
-                </span>
-              </div>
-            )}
-          </div>
-
-          <div style={{ padding: '1.25rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
             <div
               style={{
                 display: 'flex',
@@ -232,14 +195,32 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
                 color: 'var(--color-text-body-compact)',
                 lineHeight: 1.6,
                 flexGrow: 1,
-                marginBottom: item.tags.length > 0 ? '1rem' : 0,
+                marginBottom: (item.tags.length > 0 || item.soldOut) ? '1rem' : 0,
               }}
             >
               {item.description}
             </p>
 
-            {item.tags.length > 0 && (
+            {(item.tags.length > 0 || item.soldOut) && (
               <div style={{ display: 'flex', gap: '0.375rem', flexWrap: 'wrap' }}>
+                {item.soldOut && (
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-ui)',
+                      fontSize: '0.6875rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      padding: '0.2rem 0.5rem',
+                      borderRadius: '3px',
+                      backgroundColor: 'rgba(250,248,242,0.06)',
+                      border: '1px solid var(--color-border-dark)',
+                      color: 'var(--color-text-primary-muted)',
+                    }}
+                  >
+                    Sold Out
+                  </span>
+                )}
                 {item.tags.map((tag) => (
                   <span
                     key={tag}

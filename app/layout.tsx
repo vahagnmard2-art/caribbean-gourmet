@@ -11,6 +11,7 @@ import { Footer } from '@/components/Footer'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
+  style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',
 })
@@ -18,6 +19,7 @@ const playfair = Playfair_Display({
 const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
   weight: '400',
+  style: ['normal', 'italic'],
   variable: '--font-dm-serif',
   display: 'swap',
 })

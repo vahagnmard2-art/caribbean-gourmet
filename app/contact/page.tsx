@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { VIPSignup } from '@/components/VIPSignup'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -233,36 +234,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* VIP signup anchor */}
-      <section
-        id="vip"
-        style={{
-          backgroundColor: 'var(--color-obsidian)',
-          borderTop: '1px solid var(--color-border-dark)',
-          paddingBlock: 'clamp(3rem, 6vw, 5rem)',
-        }}
-        aria-labelledby="contact-vip-heading"
-      >
-        <div className="container" style={{ maxWidth: '640px', textAlign: 'center' }}>
-          <h2
-            id="contact-vip-heading"
-            style={{
-              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-              color: 'var(--color-coconut)',
-              marginBottom: '0.75rem',
-            }}
-          >
-            Join the VIP List
-          </h2>
-          <p style={{ color: 'var(--color-text-secondary)', marginBottom: '1.75rem', lineHeight: 1.6 }}>
-            Get early access to Guyana Night tickets, secret menus, weekend specials,
-            and exclusive loyalty rewards. No spam.
-          </p>
-          <Link href="/#vip" className="btn-primary" style={{ fontSize: '1rem' }}>
-            Join Auntie Yonette&rsquo;s Inner Circle
-          </Link>
-        </div>
-      </section>
+      <VIPSignup />
     </>
   )
 }

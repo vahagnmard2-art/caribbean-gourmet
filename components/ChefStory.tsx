@@ -30,7 +30,7 @@ export function ChefStory() {
               id="chef-story-heading"
               style={{
                 fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-                fontWeight: 700,
+                fontWeight: 600,
                 color: 'var(--color-text-dark)',
                 marginTop: '0.5rem',
                 marginBottom: '1.5rem',
@@ -47,7 +47,7 @@ export function ChefStory() {
               style={{
                 fontSize: '1.0625rem',
                 color: 'var(--color-text-muted)',
-                lineHeight: 1.7,
+                lineHeight: 1.6,
                 marginBottom: '1rem',
               }}
             >
@@ -61,7 +61,7 @@ export function ChefStory() {
               style={{
                 fontSize: '1.0625rem',
                 color: 'var(--color-text-muted)',
-                lineHeight: 1.7,
+                lineHeight: 1.6,
                 marginBottom: '2rem',
               }}
             >
@@ -75,6 +75,8 @@ export function ChefStory() {
             <Link
               href="/about"
               style={{
+                display: 'inline-block',
+                paddingBlock: '0.75rem',
                 fontFamily: 'var(--font-ui)',
                 fontSize: '0.9375rem',
                 fontWeight: 700,

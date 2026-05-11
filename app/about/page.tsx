@@ -126,6 +126,7 @@ export default function AboutPage() {
               src="/images/yonette-alleyne.jpg"
               alt="Chef Yonette Alleyne, owner and founder of Caribbean Gourmet, in the Blossom Market Hall kitchen in San Gabriel, CA"
               fill
+              priority
               sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover', objectPosition: 'top center' }}
             />

@@ -41,7 +41,7 @@ export function GuyanaNight() {
             style={{
               fontSize: '1.0625rem',
               color: 'rgba(250,248,242,0.82)',
-              lineHeight: 1.65,
+              lineHeight: 1.6,
             }}
           >
             Every year on Guyanese Independence Day, we go all in — rare dishes,

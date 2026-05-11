@@ -1,7 +1,27 @@
+'use client'
+import { useLayoutEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import gsap from 'gsap'
 
 export function Hero() {
+  const labelRef   = useRef<HTMLSpanElement>(null)
+  const headlineRef = useRef<HTMLHeadingElement>(null)
+  const descRef    = useRef<HTMLParagraphElement>(null)
+  const ctaRef     = useRef<HTMLDivElement>(null)
+  const hoursRef   = useRef<HTMLParagraphElement>(null)
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.timeline({ delay: 0.2, defaults: { ease: 'power3.out' } }).fromTo(
+        [labelRef.current, headlineRef.current, descRef.current, ctaRef.current, hoursRef.current],
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.12 }
+      )
+    })
+    return () => ctx.revert()
+  }, [])
+
   return (
     <section
       aria-label="Caribbean Gourmet — Guyanese and Caribbean food in San Gabriel"
@@ -14,7 +34,6 @@ export function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Hero image — swap src for real food photo */}
       <Image
         src="/images/hero.jpg"
         alt="Caribbean Gourmet jerk chicken with smoky char, caramelized plantains, rice and peas at Blossom Market Hall"
@@ -24,7 +43,6 @@ export function Hero() {
         priority
       />
 
-      {/* Gradient overlay: food visible at top, text legible at bottom */}
       <div
         aria-hidden="true"
         style={{
@@ -35,13 +53,13 @@ export function Hero() {
         }}
       />
 
-      {/* Content */}
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <span className="section-label" style={{ marginBottom: '1rem' }}>
+        <span ref={labelRef} className="section-label" style={{ marginBottom: '1rem' }}>
           Blossom Market Hall · San Gabriel, CA
         </span>
 
         <h1
+          ref={headlineRef}
           style={{
             fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
             fontWeight: 600,
@@ -59,6 +77,7 @@ export function Hero() {
         </h1>
 
         <p
+          ref={descRef}
           style={{
             fontSize: 'clamp(1rem, 2vw, 1.2rem)',
             color: 'rgba(250,248,242,0.82)',
@@ -71,7 +90,7 @@ export function Hero() {
           pastries — made from scratch by Auntie Yonette since 2015.
         </p>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+        <div ref={ctaRef} style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
           <Link
             href="/menu"
             className="btn-primary"
@@ -89,6 +108,7 @@ export function Hero() {
         </div>
 
         <p
+          ref={hoursRef}
           style={{
             marginTop: '2rem',
             fontFamily: 'var(--font-ui)',

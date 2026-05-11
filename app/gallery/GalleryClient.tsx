@@ -143,10 +143,11 @@ export function GalleryClient() {
           {visible.map(({ id, src, alt }) => (
             <div
               key={id}
+              className="gallery-card"
               style={{
                 breakInside: 'avoid',
                 marginBottom: '1rem',
-                borderRadius: '6px',
+                borderRadius: '8px',
                 overflow: 'hidden',
                 backgroundColor: 'var(--color-obsidian)',
               }}

@@ -36,7 +36,7 @@ export default function MenuPage() {
           <p
             style={{
               fontSize: '1.0625rem',
-              color: 'rgba(250,248,242,0.72)',
+              color: 'var(--color-text-secondary)',
               maxWidth: '50ch',
               lineHeight: 1.6,
               marginBottom: '1.5rem',
@@ -47,13 +47,13 @@ export default function MenuPage() {
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center' }}>
-            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '0.8125rem', color: 'var(--color-text-muted)' }}>
+            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '0.875rem', color: 'var(--color-text-primary-muted)' }}>
               Dietary key:
             </span>
             {[
               { label: '🌿 Vegan', color: 'var(--color-callaloo)' },
               { label: '🕌 Halal', color: 'var(--color-saffron)' },
-              { label: '🌾 GF', color: 'var(--color-text-muted)' },
+              { label: '🌾 GF', color: 'var(--color-text-primary-muted)' },
             ].map(({ label, color }) => (
               <span
                 key={label}
@@ -92,6 +92,7 @@ export default function MenuPage() {
             style={{
               fontSize: 'clamp(1.5rem, 3vw, 2rem)',
               color: 'var(--color-coconut)',
+              lineHeight: 1.3,
               marginBottom: '0.75rem',
             }}
           >
@@ -99,8 +100,7 @@ export default function MenuPage() {
           </h2>
           <p
             style={{
-              color: 'rgba(250,248,242,0.68)',
-              marginBottom: '1.75rem',
+              color: 'var(--color-text-secondary)',
               maxWidth: '40ch',
               margin: '0 auto 1.75rem',
             }}
@@ -115,8 +115,8 @@ export default function MenuPage() {
             style={{
               marginTop: '1.25rem',
               fontFamily: 'var(--font-ui)',
-              fontSize: '0.8125rem',
-              color: 'var(--color-text-muted)',
+              fontSize: '0.875rem',
+              color: 'var(--color-text-primary-muted)',
             }}
           >
             Want to plan a full event?{' '}

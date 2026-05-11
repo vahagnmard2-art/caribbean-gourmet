@@ -27,6 +27,7 @@ export function ReviewContest() {
             style={{
               fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
               color: 'var(--color-coconut)',
+              lineHeight: 1.3,
               marginTop: '0.25rem',
               marginBottom: '0.75rem',
             }}
@@ -36,7 +37,7 @@ export function ReviewContest() {
           <p
             style={{
               fontSize: '1rem',
-              color: 'rgba(250,248,242,0.72)',
+              color: 'var(--color-text-secondary)',
               lineHeight: 1.6,
               maxWidth: '44ch',
             }}
@@ -52,7 +53,7 @@ export function ReviewContest() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
-            style={{ fontSize: '0.9375rem' }}
+            style={{ fontSize: '1rem' }}
           >
             Leave a Google Review
           </a>
@@ -61,7 +62,7 @@ export function ReviewContest() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"
-            style={{ fontSize: '0.9375rem' }}
+            style={{ fontSize: '1rem' }}
           >
             Leave a Yelp Review
           </a>

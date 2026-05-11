@@ -92,7 +92,7 @@ export function MenuClient() {
                       style={{
                         marginLeft: '0.75rem',
                         fontFamily: 'var(--font-ui)',
-                        fontSize: '0.6875rem',
+                        fontSize: '0.75rem',
                         fontWeight: 700,
                         letterSpacing: '0.1em',
                         textTransform: 'uppercase',
@@ -127,10 +127,8 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
       {items.map((item) => (
         <article
           key={item.id}
+          className="menu-card card"
           style={{
-            backgroundColor: 'var(--color-obsidian)',
-            border: '1px solid var(--color-border-dark)',
-            borderRadius: '8px',
             overflow: 'hidden',
             display: 'flex',
             flexDirection: 'column',
@@ -154,7 +152,7 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
                   backgroundColor: 'var(--color-saffron)',
                   color: 'var(--color-coconut)',
                   fontFamily: 'var(--font-ui)',
-                  fontSize: '0.625rem',
+                  fontSize: '0.75rem',
                   fontWeight: 700,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
@@ -231,7 +229,7 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
             <p
               style={{
                 fontSize: '0.875rem',
-                color: 'rgba(250,248,242,0.65)',
+                color: 'var(--color-text-body-compact)',
                 lineHeight: 1.6,
                 flexGrow: 1,
                 marginBottom: item.tags.length > 0 ? '1rem' : 0,
@@ -258,7 +256,7 @@ function MenuGrid({ items }: { items: typeof menuItems }) {
                         ? 'var(--color-callaloo)'
                         : tag === 'halal'
                         ? 'var(--color-saffron)'
-                        : 'var(--color-text-muted)',
+                        : 'var(--color-text-primary-muted)',
                     }}
                   >
                     {dietaryLabels[tag]}

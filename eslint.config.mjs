@@ -13,6 +13,19 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    files: ["**/*.tsx", "**/*.ts"],
+    rules: {
+      "no-restricted-syntax": [
+        "warn",
+        {
+          selector: "Literal[value=/rgba\\(250,?\\s*248,?\\s*242/]",
+          message:
+            "Use a --color-text-* design token instead of a raw rgba(250,248,242,x) value. See DESIGN_SYSTEM.md.",
+        },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;

@@ -102,7 +102,7 @@ export function Pillars() {
                   style={{
                     fontFamily: 'var(--font-sans)',
                     fontSize: '0.9375rem',
-                    color: 'rgba(250,248,242,0.72)',
+                    color: 'var(--color-text-secondary)',
                     lineHeight: 1.6,
                     flexGrow: 1,
                     marginBottom: '1.5rem',
@@ -116,9 +116,9 @@ export function Pillars() {
                     fontFamily: 'var(--font-ui)',
                     fontSize: '0.875rem',
                     fontWeight: 700,
-                    color: 'var(--color-gold)',
                     letterSpacing: '0.04em',
                     alignSelf: 'flex-start',
+                    paddingBlock: '0.75rem',
                   }}
                   className="gold-link"
                 >

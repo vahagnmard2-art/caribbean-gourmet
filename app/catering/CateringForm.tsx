@@ -37,7 +37,7 @@ const inputStyle: React.CSSProperties = {
   backgroundColor: 'rgba(250,248,242,0.05)',
   color: 'var(--color-coconut)',
   fontFamily: 'var(--font-sans)',
-  fontSize: '0.9375rem',
+  fontSize: '1rem',
   outline: 'none',
   transition: 'border-color 150ms ease',
 }
@@ -45,7 +45,7 @@ const inputStyle: React.CSSProperties = {
 const labelStyle: React.CSSProperties = {
   display: 'block',
   fontFamily: 'var(--font-ui)',
-  fontSize: '0.8125rem',
+  fontSize: '0.875rem',
   fontWeight: 600,
   color: 'rgba(250,248,242,0.75)',
   marginBottom: '0.4rem',
@@ -58,6 +58,11 @@ export function CateringForm() {
     date: '', guestCount: '', dietary: [], message: '',
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [focusedField, setFocusedField] = useState<string | null>(null)
+
+  function fieldStyle(id: string): React.CSSProperties {
+    return { ...inputStyle, borderColor: focusedField === id ? 'var(--color-gold)' : undefined }
+  }
 
   function handleChange(field: keyof FormData, value: string) {
     setForm((prev) => ({ ...prev, [field]: value }))
@@ -70,13 +75,6 @@ export function CateringForm() {
         ? [...prev.dietary, value]
         : prev.dietary.filter((d) => d !== value),
     }))
-  }
-
-  function focusStyle(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
-    e.target.style.borderColor = 'var(--color-gold)'
-  }
-  function blurStyle(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
-    e.target.style.borderColor = 'var(--color-border-dark)'
   }
 
   // Minimum date = tomorrow
@@ -137,10 +135,8 @@ export function CateringForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      className="card"
       style={{
-        backgroundColor: 'var(--color-obsidian)',
-        border: '1px solid var(--color-border-dark)',
-        borderRadius: '8px',
         padding: 'clamp(1.5rem, 4vw, 2.5rem)',
         display: 'flex',
         flexDirection: 'column',
@@ -157,8 +153,8 @@ export function CateringForm() {
             placeholder="Your name"
             value={form.name}
             onChange={(e) => handleChange('name', e.target.value)}
-            onFocus={focusStyle} onBlur={blurStyle}
-            style={inputStyle}
+            onFocus={() => setFocusedField('cf-name')} onBlur={() => setFocusedField(null)}
+            style={fieldStyle('cf-name')}
           />
         </div>
         <div>
@@ -168,8 +164,8 @@ export function CateringForm() {
             placeholder="your@email.com"
             value={form.email}
             onChange={(e) => handleChange('email', e.target.value)}
-            onFocus={focusStyle} onBlur={blurStyle}
-            style={inputStyle}
+            onFocus={() => setFocusedField('cf-email')} onBlur={() => setFocusedField(null)}
+            style={fieldStyle('cf-email')}
           />
         </div>
       </div>
@@ -183,8 +179,8 @@ export function CateringForm() {
             placeholder="(555) 555-5555"
             value={form.phone}
             onChange={(e) => handleChange('phone', e.target.value)}
-            onFocus={focusStyle} onBlur={blurStyle}
-            style={inputStyle}
+            onFocus={() => setFocusedField('cf-phone')} onBlur={() => setFocusedField(null)}
+            style={fieldStyle('cf-phone')}
           />
         </div>
         <div>
@@ -193,8 +189,8 @@ export function CateringForm() {
             id="cf-event-type" required
             value={form.eventType}
             onChange={(e) => handleChange('eventType', e.target.value)}
-            onFocus={focusStyle} onBlur={blurStyle}
-            style={{ ...inputStyle, cursor: 'pointer' }}
+            onFocus={() => setFocusedField('cf-event-type')} onBlur={() => setFocusedField(null)}
+            style={{ ...fieldStyle('cf-event-type'), cursor: 'pointer' }}
           >
             <option value="" disabled>Select type</option>
             {eventTypes.map((t) => (
@@ -213,8 +209,8 @@ export function CateringForm() {
             min={minDate}
             value={form.date}
             onChange={(e) => handleChange('date', e.target.value)}
-            onFocus={focusStyle} onBlur={blurStyle}
-            style={inputStyle}
+            onFocus={() => setFocusedField('cf-date')} onBlur={() => setFocusedField(null)}
+            style={fieldStyle('cf-date')}
           />
         </div>
         <div>
@@ -224,8 +220,8 @@ export function CateringForm() {
             min="5" placeholder="e.g. 40"
             value={form.guestCount}
             onChange={(e) => handleChange('guestCount', e.target.value)}
-            onFocus={focusStyle} onBlur={blurStyle}
-            style={inputStyle}
+            onFocus={() => setFocusedField('cf-guests')} onBlur={() => setFocusedField(null)}
+            style={fieldStyle('cf-guests')}
           />
         </div>
       </div>
@@ -243,7 +239,7 @@ export function CateringForm() {
                 gap: '0.5rem',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-ui)',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: 'rgba(250,248,242,0.8)',
               }}
             >
@@ -276,15 +272,15 @@ export function CateringForm() {
           placeholder="Any details about your event, food preferences, or questions for Yonette…"
           value={form.message}
           onChange={(e) => handleChange('message', e.target.value)}
-          onFocus={focusStyle} onBlur={blurStyle}
-          style={{ ...inputStyle, resize: 'vertical', minHeight: '120px' }}
+          onFocus={() => setFocusedField('cf-message')} onBlur={() => setFocusedField(null)}
+          style={{ ...fieldStyle('cf-message'), resize: 'vertical', minHeight: '120px' }}
         />
       </div>
 
       {status === 'error' && (
         <p
           role="alert"
-          style={{ color: 'rgba(250,248,242,0.65)', fontSize: '0.9rem' }}
+          style={{ color: 'var(--color-text-body-compact)', fontSize: '0.875rem' }}
         >
           Something went wrong. Please call us directly at{' '}
           <a href="tel:+16267704004" style={{ color: 'var(--color-gold)' }}>
@@ -303,7 +299,7 @@ export function CateringForm() {
         {status === 'loading' ? 'Sending…' : 'Request a Catering Quote'}
       </button>
 
-      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '0.8125rem', color: 'var(--color-text-muted)' }}>
+      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '0.875rem', color: 'var(--color-text-primary-muted)' }}>
         * Required fields. We respond within 1–2 business days.
       </p>
     </form>

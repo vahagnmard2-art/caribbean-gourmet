@@ -61,7 +61,7 @@ function ReviewCard({ text, source, stars }: { text: string; source: string; sta
         style={{ display: 'flex', gap: '2px', marginBottom: '0.875rem' }}
       >
         {Array.from({ length: stars }).map((_, i) => (
-          <span key={i} style={{ color: 'var(--color-gold)', fontSize: '0.9rem' }}>
+          <span key={i} style={{ color: 'var(--color-gold)', fontSize: '0.875rem' }}>
             ★
           </span>
         ))}
@@ -84,7 +84,7 @@ function ReviewCard({ text, source, stars }: { text: string; source: string; sta
           fontSize: '0.75rem',
           fontWeight: 600,
           letterSpacing: '0.06em',
-          color: 'var(--color-text-muted)',
+          color: 'var(--color-text-primary-muted)',
           textTransform: 'uppercase',
         }}
       >
@@ -94,9 +94,9 @@ function ReviewCard({ text, source, stars }: { text: string; source: string; sta
   )
 }
 
+const doubled = [...reviews, ...reviews]
+
 export function ReviewsMarquee() {
-  // Duplicate for seamless loop
-  const doubled = [...reviews, ...reviews]
 
   return (
     <section
@@ -114,7 +114,7 @@ export function ReviewsMarquee() {
             textAlign: 'center',
             fontFamily: 'var(--font-ui)',
             fontSize: '0.9375rem',
-            color: 'var(--color-text-muted)',
+            color: 'var(--color-text-primary-muted)',
           }}
         >
           <span style={{ color: 'var(--color-gold)' }}>★★★★★</span>&ensp;

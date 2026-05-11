@@ -101,7 +101,7 @@ export default function AboutPage() {
       {/* Chef portrait + intro */}
       <section
         className="section-pad"
-        style={{ backgroundColor: 'var(--color-roti' }}
+        style={{ backgroundColor: 'var(--color-roti)' }}
         aria-labelledby="chef-intro-heading"
       >
         <div
@@ -142,20 +142,20 @@ export default function AboutPage() {
             >
               Meet Auntie Yonette
             </h2>
-            <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-muted)', lineHeight: 1.75, marginBottom: '1rem' }}>
+            <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1rem' }}>
               Yonette Alleyne grew up in Guyana, on the northeastern coast of South
               America, in a privileged environment — first on a sugar estate where
               her father managed personnel, later at a bauxite mining community. Her
               mother was an accomplished baker who discouraged her daughter from the
               kitchen, insisting she pursue a respectable office career.
             </p>
-            <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-muted)', lineHeight: 1.75, marginBottom: '1rem' }}>
+            <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1rem' }}>
               Young Yonette watched anyway. She absorbed techniques through observation.
               And on her 11th birthday, she asked for a chef&rsquo;s coat, a chef&rsquo;s hat,
               mittens, and a cookbook. Her mother obliged. Yonette began baking
               immediately. By 18, she had contracts supplying two bakeries.
             </p>
-            <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-muted)', lineHeight: 1.75, marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
               Twenty-five years and an ocean later, her customers call her Auntie Yonette
               — and they travel from across Los Angeles to eat her food. Everything is
               still made from scratch. Every roti is still rolled by hand.
@@ -163,6 +163,8 @@ export default function AboutPage() {
             <Link
               href="/contact"
               style={{
+                display: 'inline-block',
+                paddingBlock: '0.75rem',
                 fontFamily: 'var(--font-ui)',
                 fontSize: '0.9375rem',
                 fontWeight: 700,
@@ -200,7 +202,7 @@ export default function AboutPage() {
               "The result is a cuisine unlike any other in the Caribbean. Where Jamaican food leans toward scotch bonnet heat, Guyanese cooking builds depth through spice layering — curry isn't Jamaican curry, it's a distinct Guyanese preparation rooted in Indo-Guyanese tradition. The pepper sauce is mild enough to eat by the spoonful. The roti is thicker and chewier. The pastries — pine tarts, cheese rolls, cassava pone — are entirely their own.",
               "Yonette serves dishes from across the Caribbean — oxtail and jerk chicken from Jamaica, doubles from Trinidad — but the heart of this kitchen is Guyanese. And in the San Gabriel Valley, there is nowhere else quite like it.",
             ].map((p, i) => (
-              <p key={i} style={{ fontSize: '1.0625rem', color: 'rgba(250,248,242,0.78)', lineHeight: 1.75 }}>
+              <p key={i} style={{ fontSize: '1.0625rem', color: 'rgba(250,248,242,0.78)', lineHeight: 1.6 }}>
                 {p}
               </p>
             ))}
@@ -232,7 +234,7 @@ export default function AboutPage() {
                 key={year}
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '100px 1fr',
+                  gridTemplateColumns: '72px 1fr',
                   gap: '1.5rem',
                   paddingBottom: i < timeline.length - 1 ? '2.5rem' : 0,
                   position: 'relative',
@@ -277,7 +279,7 @@ export default function AboutPage() {
                   >
                     {event}
                   </h3>
-                  <p style={{ fontSize: '0.9375rem', color: 'rgba(250,248,242,0.68)', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                     {detail}
                   </p>
                 </div>
@@ -332,7 +334,7 @@ export default function AboutPage() {
                 >
                   {outlet}
                 </p>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(250,248,242,0.68)', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                   {description}
                 </p>
                 <span

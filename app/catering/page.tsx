@@ -82,7 +82,7 @@ export default function CateringPage() {
               fontSize: '1.125rem',
               color: 'rgba(250,248,242,0.76)',
               maxWidth: '52ch',
-              lineHeight: 1.65,
+              lineHeight: 1.6,
             }}
           >
             Authentic Guyanese and Caribbean cuisine for family gatherings, corporate
@@ -141,7 +141,7 @@ export default function CateringPage() {
                 <p
                   style={{
                     fontFamily: 'var(--font-ui)',
-                    fontSize: '0.8125rem',
+                    fontSize: '0.875rem',
                     fontWeight: 600,
                     color: 'var(--color-gold)',
                     marginBottom: '1rem',
@@ -150,7 +150,7 @@ export default function CateringPage() {
                 >
                   {guests}
                 </p>
-                <p style={{ fontSize: '0.9375rem', color: 'rgba(250,248,242,0.7)', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                   {description}
                 </p>
               </div>
@@ -198,6 +198,7 @@ export default function CateringPage() {
             style={{
               fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
               color: 'var(--color-coconut)',
+              lineHeight: 1.3,
               marginBottom: '2rem',
             }}
           >
@@ -234,7 +235,7 @@ export default function CateringPage() {
                 >
                   {title}
                 </h3>
-                <p style={{ fontSize: '0.9375rem', color: 'rgba(250,248,242,0.65)', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-body-compact)', lineHeight: 1.6 }}>
                   {body}
                 </p>
               </div>
@@ -269,7 +270,7 @@ export default function CateringPage() {
             <footer
               style={{
                 fontFamily: 'var(--font-ui)',
-                fontSize: '0.8125rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
                 color: 'var(--color-gold)',
                 letterSpacing: '0.06em',
@@ -285,12 +286,13 @@ export default function CateringPage() {
               style={{
                 fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
                 color: 'var(--color-coconut)',
+                lineHeight: 1.3,
                 marginBottom: '0.5rem',
               }}
             >
               Request a Catering Quote
             </h2>
-            <p style={{ color: 'rgba(250,248,242,0.65)', marginBottom: '2rem' }}>
+            <p style={{ color: 'var(--color-text-body-compact)', marginBottom: '2rem' }}>
               Fill out the form and Yonette will be in touch within 1–2 business days.
             </p>
             <CateringForm />

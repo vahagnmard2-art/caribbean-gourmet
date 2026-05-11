@@ -63,9 +63,9 @@ export function Footer() {
             </p>
             <p
               style={{
-                fontSize: '0.9rem',
-                color: 'var(--color-text-muted)',
-                lineHeight: 1.65,
+                fontSize: '0.875rem',
+                color: 'var(--color-text-primary-muted)',
+                lineHeight: 1.6,
                 maxWidth: '26ch',
               }}
             >
@@ -76,17 +76,7 @@ export function Footer() {
 
           {/* Hours */}
           <div>
-            <p
-              style={{
-                fontFamily: 'var(--font-ui)',
-                fontSize: '0.6875rem',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--color-gold)',
-                marginBottom: '1rem',
-              }}
-            >
+            <p className="section-label" style={{ marginBottom: '1rem' }}>
               Hours
             </p>
             <dl>
@@ -100,7 +90,7 @@ export function Footer() {
                     marginBottom: '0.4rem',
                     fontFamily: 'var(--font-ui)',
                     fontSize: '0.875rem',
-                    color: muted ? 'var(--color-text-muted)' : 'rgba(250,248,242,0.82)',
+                    color: muted ? 'var(--color-text-primary-muted)' : 'rgba(250,248,242,0.82)',
                   }}
                 >
                   <dt>{days}</dt>
@@ -112,25 +102,15 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <p
-              style={{
-                fontFamily: 'var(--font-ui)',
-                fontSize: '0.6875rem',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--color-gold)',
-                marginBottom: '1rem',
-              }}
-            >
+            <p className="section-label" style={{ marginBottom: '1rem' }}>
               Find Us
             </p>
             <address
               style={{
                 fontStyle: 'normal',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: 'rgba(250,248,242,0.8)',
-                lineHeight: 1.7,
+                lineHeight: 1.6,
               }}
             >
               <p>264 S Mission Dr</p>
@@ -158,14 +138,13 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel={rel}
+                  className="muted-link"
                   style={{
                     fontFamily: 'var(--font-ui)',
                     fontSize: '0.75rem',
                     fontWeight: 700,
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: 'rgba(250,248,242,0.5)',
-                    transition: 'color 150ms ease',
                   }}
                 >
                   {label}
@@ -202,11 +181,10 @@ export function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
+                    className="muted-link"
                     style={{
                       fontFamily: 'var(--font-ui)',
                       fontSize: '0.8125rem',
-                      color: 'var(--color-text-muted)',
-                      transition: 'color 150ms ease',
                     }}
                   >
                     {label}
@@ -220,7 +198,7 @@ export function Footer() {
             style={{
               fontFamily: 'var(--font-ui)',
               fontSize: '0.8125rem',
-              color: 'var(--color-text-muted)',
+              color: 'var(--color-text-primary-muted)',
             }}
           >
             &copy; {year} Caribbean Gourmet. All rights reserved.

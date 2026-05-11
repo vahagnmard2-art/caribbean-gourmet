@@ -14,7 +14,11 @@
   --color-text-dark:    #1C1107;
   --color-text-muted:   #6B5240;
   --color-border-dark:  #3D2410;
-  --color-border-light: #E0D5C1;
+
+  /* ── Semantic text-on-dark opacity scale ── */
+  --color-text-secondary:     rgba(250, 248, 242, 0.72); /* card body, section descriptions */
+  --color-text-body-compact:  rgba(250, 248, 242, 0.65); /* compact paragraph text in dense card/list layouts */
+  --color-text-primary-muted: rgba(250, 248, 242, 0.55); /* captions, disclaimers, metadata */
 
   /* ── Fonts ── */
   --font-display: var(--font-playfair), Georgia, serif;
@@ -39,12 +43,12 @@
     color: var(--color-coconut);
     font-family: var(--font-sans);
     font-size: 1rem;
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   h1, h2 {
     font-family: var(--font-display);
-    line-height: 1.12;
+    line-height: 1.15;
     letter-spacing: -0.02em;
   }
 
@@ -90,7 +94,7 @@
     background-color: var(--color-gold);
     color: var(--color-molasses);
     font-family: var(--font-ui);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9375rem;
     letter-spacing: 0.02em;
     border-radius: 4px;
@@ -115,7 +119,7 @@
     border: 1.5px solid var(--color-gold);
     color: var(--color-gold);
     font-family: var(--font-ui);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9375rem;
     letter-spacing: 0.02em;
     border-radius: 4px;
@@ -139,9 +143,9 @@
   .section-label {
     display: block;
     font-family: var(--font-ui);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-gold);
   }
@@ -180,6 +184,22 @@
   }
   .gold-link:hover { color: var(--color-gold-light); }
 
+  .muted-link {
+    color: var(--color-text-primary-muted);
+    transition: color 150ms ease-out;
+    text-underline-offset: 3px;
+  }
+  .muted-link:hover {
+    color: var(--color-coconut);
+    text-decoration-line: underline;
+  }
+
+  .card {
+    background-color: var(--color-obsidian);
+    border: 1px solid var(--color-border-dark);
+    border-radius: 8px;
+  }
+
   .press-card {
     display: block;
     background-color: var(--color-obsidian);
@@ -189,4 +209,20 @@
     transition: border-color 150ms ease;
   }
   .press-card:hover { border-color: var(--color-gold); }
+
+  .menu-card { transition: border-color 150ms ease; }
+  .menu-card:hover { border-color: var(--color-gold); }
+
+  .gallery-card img { transition: transform 300ms ease; }
+  .gallery-card:hover img { transform: scale(1.03); }
+
+  /* Responsive nav visibility — sourced from Nav.tsx */
+  @media (min-width: 768px) {
+    .hidden-mobile { display: flex !important; }
+    .show-mobile   { display: none  !important; }
+  }
+  @media (max-width: 767px) {
+    .hidden-mobile { display: none  !important; }
+    .show-mobile   { display: flex  !important; }
+  }
 }

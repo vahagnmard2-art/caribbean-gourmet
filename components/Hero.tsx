@@ -44,7 +44,8 @@ export function Hero() {
         <h1
           style={{
             fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            fontWeight: 700,
+            fontWeight: 600,
+            lineHeight: 1.1,
             color: 'var(--color-coconut)',
             maxWidth: '16ch',
             marginTop: '0.75rem',
@@ -63,7 +64,7 @@ export function Hero() {
             color: 'rgba(250,248,242,0.82)',
             maxWidth: '48ch',
             marginBottom: '2.25rem',
-            lineHeight: 1.65,
+            lineHeight: 1.6,
           }}
         >
           Slow-braised oxtail, handmade roti, jerk chicken, and fresh Guyanese
@@ -91,8 +92,8 @@ export function Hero() {
           style={{
             marginTop: '2rem',
             fontFamily: 'var(--font-ui)',
-            fontSize: '0.8125rem',
-            color: 'rgba(250,248,242,0.5)',
+            fontSize: '0.875rem',
+            color: 'rgba(250,248,242,0.7)',
             letterSpacing: '0.03em',
           }}
         >

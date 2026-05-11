@@ -69,7 +69,7 @@ export default function ContactPage() {
                   fontStyle: 'normal',
                   fontSize: '1rem',
                   color: 'rgba(250,248,242,0.8)',
-                  lineHeight: 1.7,
+                  lineHeight: 1.6,
                 }}
               >
                 <p>264 S Mission Dr</p>
@@ -80,13 +80,14 @@ export default function ContactPage() {
                 href="https://maps.google.com/?q=264+S+Mission+Dr+San+Gabriel+CA+91776"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="gold-link"
                 style={{
                   display: 'inline-block',
                   marginTop: '0.875rem',
+                  paddingBlock: '0.75rem',
                   fontFamily: 'var(--font-ui)',
                   fontSize: '0.875rem',
                   fontWeight: 600,
-                  color: 'var(--color-gold)',
                 }}
               >
                 Get Directions →
@@ -113,12 +114,13 @@ export default function ContactPage() {
                   fontWeight: 700,
                   color: 'var(--color-coconut)',
                   display: 'block',
+                  paddingBlock: '0.625rem',
                   marginBottom: '0.25rem',
                 }}
               >
                 (626) 770-4004
               </a>
-              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-text-primary-muted)' }}>
                 Best reached during business hours. For catering inquiries, please use
                 our{' '}
                 <Link href="/catering#inquiry" style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>
@@ -152,7 +154,7 @@ export default function ContactPage() {
                       borderBottom: '1px solid var(--color-border-dark)',
                       fontFamily: 'var(--font-ui)',
                       fontSize: '0.9375rem',
-                      color: muted ? 'var(--color-text-muted)' : 'rgba(250,248,242,0.85)',
+                      color: muted ? 'var(--color-text-primary-muted)' : 'rgba(250,248,242,0.85)',
                     }}
                   >
                     <dt>{days}</dt>
@@ -163,8 +165,8 @@ export default function ContactPage() {
               <p
                 style={{
                   marginTop: '0.75rem',
-                  fontSize: '0.8125rem',
-                  color: 'var(--color-text-muted)',
+                  fontSize: '0.875rem',
+                  color: 'var(--color-text-primary-muted)',
                   fontFamily: 'var(--font-ui)',
                 }}
               >
@@ -190,7 +192,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline"
-                  style={{ fontSize: '0.875rem', padding: '0.5rem 1.25rem' }}
+                  style={{ fontSize: '0.875rem', padding: '0.6875rem 1.25rem' }}
                 >
                   Instagram
                 </a>
@@ -199,7 +201,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline"
-                  style={{ fontSize: '0.875rem', padding: '0.5rem 1.25rem' }}
+                  style={{ fontSize: '0.875rem', padding: '0.6875rem 1.25rem' }}
                 >
                   Yelp
                 </a>
@@ -252,7 +254,7 @@ export default function ContactPage() {
           >
             Join the VIP List
           </h2>
-          <p style={{ color: 'rgba(250,248,242,0.72)', marginBottom: '1.75rem', lineHeight: 1.65 }}>
+          <p style={{ color: 'var(--color-text-secondary)', marginBottom: '1.75rem', lineHeight: 1.6 }}>
             Get early access to Guyana Night tickets, secret menus, weekend specials,
             and exclusive loyalty rewards. No spam.
           </p>

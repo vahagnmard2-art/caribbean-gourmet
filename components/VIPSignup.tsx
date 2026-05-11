@@ -4,6 +4,7 @@ import { useState } from 'react'
 export function VIPSignup() {
   const [email, setEmail]   = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [focused, setFocused] = useState(false)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -51,7 +52,7 @@ export function VIPSignup() {
           style={{
             fontSize: '1.0625rem',
             color: 'rgba(250,248,242,0.78)',
-            lineHeight: 1.65,
+            lineHeight: 1.6,
             marginBottom: '2rem',
           }}
         >
@@ -103,12 +104,13 @@ export function VIPSignup() {
                   backgroundColor: 'rgba(250,248,242,0.06)',
                   color: 'var(--color-coconut)',
                   fontFamily: 'var(--font-ui)',
-                  fontSize: '0.9375rem',
+                  fontSize: '1rem',
                   outline: 'none',
                   transition: 'border-color 150ms ease',
+                  borderColor: focused ? 'var(--color-gold)' : undefined,
                 }}
-                onFocus={(e) => { e.target.style.borderColor = 'var(--color-gold)' }}
-                onBlur={(e)  => { e.target.style.borderColor = 'var(--color-border-dark)' }}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
               />
               <button
                 type="submit"
@@ -124,7 +126,7 @@ export function VIPSignup() {
                 role="alert"
                 style={{
                   fontSize: '0.875rem',
-                  color: 'rgba(250,248,242,0.6)',
+                  color: 'var(--color-text-primary-muted)',
                   textAlign: 'left',
                 }}
               >
@@ -144,8 +146,8 @@ export function VIPSignup() {
           style={{
             marginTop: '1.25rem',
             fontFamily: 'var(--font-ui)',
-            fontSize: '0.75rem',
-            color: 'rgba(250,248,242,0.35)',
+            fontSize: '0.875rem',
+            color: 'var(--color-text-primary-muted)',
           }}
         >
           We will never share your email. Unsubscribe anytime.

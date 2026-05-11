@@ -75,7 +75,7 @@ export function MenuPreview() {
           <Link
             href="/menu"
             className="btn-outline"
-            style={{ fontSize: '0.875rem', padding: '0.625rem 1.25rem' }}
+            style={{ fontSize: '0.875rem', padding: '0.75rem 1.25rem' }}
           >
             See Full Menu
           </Link>
@@ -115,7 +115,7 @@ export function MenuPreview() {
                       backgroundColor: tagColor ?? 'var(--color-gold)',
                       color: 'var(--color-coconut)',
                       fontFamily: 'var(--font-ui)',
-                      fontSize: '0.625rem',
+                      fontSize: '0.75rem',
                       fontWeight: 700,
                       letterSpacing: '0.1em',
                       textTransform: 'uppercase',
@@ -144,7 +144,7 @@ export function MenuPreview() {
                 <p
                   style={{
                     fontSize: '0.875rem',
-                    color: 'rgba(250,248,242,0.68)',
+                    color: 'var(--color-text-secondary)',
                     lineHeight: 1.6,
                   }}
                 >

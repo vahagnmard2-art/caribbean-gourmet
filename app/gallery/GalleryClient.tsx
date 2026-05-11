@@ -103,12 +103,19 @@ export function GalleryClient() {
           overflowX: 'auto',
         }}
       >
-        <div className="container" style={{ display: 'flex', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>
+        <div
+          role="tablist"
+          aria-label="Filter photos by category"
+          className="container"
+          style={{ display: 'flex', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}
+        >
           {filters.map(({ value, label }) => {
             const isActive = active === value
             return (
               <button
                 key={value}
+                role="tab"
+                aria-selected={isActive}
                 onClick={() => setActive(value)}
                 style={{
                   padding: '0.875rem 1.25rem',

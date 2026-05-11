@@ -36,6 +36,8 @@ export function MenuClient() {
         }}
       >
         <div
+          role="tablist"
+          aria-label="Filter menu items by category"
           className="container"
           style={{ display: 'flex', gap: '0', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}
         >
@@ -44,6 +46,8 @@ export function MenuClient() {
             return (
               <button
                 key={value}
+                role="tab"
+                aria-selected={isActive}
                 onClick={() => setActive(value)}
                 style={{
                   padding: '0.875rem 1.25rem',

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { hoursCompact } from '@/lib/site-config'
 
 export function Hero() {
   return (
@@ -94,7 +95,7 @@ export function Hero() {
             letterSpacing: '0.03em',
           }}
         >
-          Wed–Thu &amp; Sun 11am–8pm &nbsp;·&nbsp; Fri–Sat 11am–9pm &nbsp;·&nbsp; Mon–Tue Closed
+          {hoursCompact}
         </p>
       </div>
     </section>

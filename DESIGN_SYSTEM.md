@@ -38,7 +38,7 @@ Three named steps on the coconut opacity scale. All assume a dark background (mo
 | Token | Resolves to | Use |
 |-------|------------|-----|
 | `--font-display` | Playfair Display → Georgia → serif | h1, h2, marketing headlines |
-| `--font-serif` | DM Serif Display → Georgia → serif | h3, h4, card titles |
+| `--font-serif` | Playfair Display → Georgia → serif | h3, h4, card titles |
 | `--font-sans` | Plus Jakarta Sans → system-ui | Body copy (default) |
 | `--font-ui` | Space Grotesk → system-ui | Labels, badges, buttons, nav, captions |
 
@@ -68,7 +68,7 @@ All primitives are in `app/globals.css` `@layer components`. Apply via `classNam
 
 ### Typography
 
-**`.section-label`** — Uppercase eyebrow label in gold. `0.75rem / 600 / 0.08em tracking`. Apply to `<span>` or `<p>` above headings.
+**`.section-label`** — Uppercase eyebrow label in saffron (`--color-saffron`). `0.75rem / 600 / 0.08em tracking`. Apply to `<span>` or `<p>` above headings. Gold is reserved for interactive elements only.
 
 ### Links
 
@@ -155,7 +155,7 @@ Proposed CSS when ready:
 ```css
 .filter-bar {
   position: sticky;
-  top: 4.5rem;
+  top: var(--nav-height);
   z-index: 10;
   background-color: var(--color-molasses);
   border-bottom: 1px solid var(--color-border-dark);

@@ -29,8 +29,8 @@ const pillars = [
     label: 'Food Products',
     headline: 'Take the Flavors Home',
     body: 'House-made pepper sauce, Guyanese seasonings, and packaged pastries — available for purchase at the stall.',
-    cta: 'Learn More',
-    href: '/menu#products',
+    cta: 'View Menu',
+    href: '/menu',
   },
 ]
 
@@ -112,6 +112,7 @@ export function Pillars() {
                 </p>
                 <Link
                   href={href}
+                  aria-label={`${cta} — ${headline}`}
                   style={{
                     fontFamily: 'var(--font-ui)',
                     fontSize: '0.875rem',

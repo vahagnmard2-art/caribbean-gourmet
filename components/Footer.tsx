@@ -1,31 +1,9 @@
 import Link from 'next/link'
-
-const navLinks = [
-  { href: '/menu',     label: 'Menu' },
-  { href: '/catering', label: 'Catering' },
-  { href: '/about',    label: 'Our Story' },
-  { href: '/gallery',  label: 'Gallery' },
-  { href: '/contact',  label: 'Contact' },
-]
+import { navLinks, hours, BUSINESS } from '@/lib/site-config'
 
 const socialLinks = [
-  {
-    href: 'https://www.instagram.com/caribbeangourmet/',
-    label: 'Instagram',
-    rel: 'noopener noreferrer',
-  },
-  {
-    href: 'https://www.yelp.com/biz/caribbean-gourmet-san-gabriel-3',
-    label: 'Yelp',
-    rel: 'noopener noreferrer',
-  },
-]
-
-const hours = [
-  { days: 'Wed – Thu', time: '11am – 8pm' },
-  { days: 'Fri – Sat', time: '11am – 9pm' },
-  { days: 'Sunday',    time: '11am – 8pm' },
-  { days: 'Mon – Tue', time: 'Closed', muted: true },
+  { href: BUSINESS.instagram, label: 'Instagram' },
+  { href: BUSINESS.yelp,      label: 'Yelp' },
 ]
 
 export function Footer() {
@@ -113,11 +91,11 @@ export function Footer() {
                 lineHeight: 1.6,
               }}
             >
-              <p>264 S Mission Dr</p>
-              <p>Blossom Market Hall</p>
-              <p>San Gabriel, CA 91776</p>
+              <p>{BUSINESS.address}</p>
+              <p>{BUSINESS.venue}</p>
+              <p>{BUSINESS.city}, {BUSINESS.state} {BUSINESS.zip}</p>
               <a
-                href="tel:+16267704004"
+                href={BUSINESS.phoneHref}
                 style={{
                   display: 'block',
                   marginTop: '0.75rem',
@@ -127,17 +105,17 @@ export function Footer() {
                   transition: 'color 150ms ease',
                 }}
               >
-                (626) 770-4004
+                {BUSINESS.phone}
               </a>
             </address>
 
             <div style={{ display: 'flex', gap: '1.25rem', marginTop: '1.25rem' }}>
-              {socialLinks.map(({ href, label, rel }) => (
+              {socialLinks.map(({ href, label }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
-                  rel={rel}
+                  rel="noopener noreferrer"
                   className="muted-link"
                   style={{
                     fontFamily: 'var(--font-ui)',
@@ -182,15 +160,21 @@ export function Footer() {
                   <Link
                     href={href}
                     className="muted-link"
-                    style={{
-                      fontFamily: 'var(--font-ui)',
-                      fontSize: '0.8125rem',
-                    }}
+                    style={{ fontFamily: 'var(--font-ui)', fontSize: '0.8125rem' }}
                   >
                     {label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/privacy"
+                  className="muted-link"
+                  style={{ fontFamily: 'var(--font-ui)', fontSize: '0.8125rem' }}
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </nav>
 

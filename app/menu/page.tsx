@@ -5,7 +5,8 @@ import { MenuClient } from './MenuClient'
 export const metadata: Metadata = {
   title: 'Menu',
   description:
-    'Slow-braised oxtail, jerk chicken, chicken curry with roti, handmade patties, Guyanese pastries and more. Order online for pickup at Blossom Market Hall, San Gabriel.',
+    'Slow-braised oxtail, jerk chicken, chicken curry with roti, handmade patties, Guyanese pastries and more. At Blossom Market Hall, San Gabriel. Wed–Sun, made from scratch daily.',
+  alternates: { canonical: '/menu' },
 }
 
 export default function MenuPage() {
@@ -105,8 +106,8 @@ export default function MenuPage() {
               margin: '0 auto 1.75rem',
             }}
           >
-            Order online for pickup at Blossom Market Hall.
-            The oxtail sells out — order ahead.
+            Call ahead to confirm availability.
+            The oxtail sells out early — don&apos;t miss it.
           </p>
           <a href="tel:+16267704004" className="btn-primary" style={{ fontSize: '1rem' }}>
             Call to Order: (626) 770-4004

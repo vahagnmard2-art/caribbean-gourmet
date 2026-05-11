@@ -28,7 +28,7 @@ You're in.
 
 Welcome to the Caribbean Gourmet VIP list. You'll be the first to hear about:
 - Secret menus and limited weekend specials
-- Guyana Night tickets (July 26)
+- Guyana Night (our annual Guyanese Independence Day celebration)
 - Exclusive loyalty rewards and offers
 - New menu items before anyone else
 

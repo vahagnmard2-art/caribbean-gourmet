@@ -1,19 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { VIPSignup } from '@/components/VIPSignup'
+import { hours } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Find Caribbean Gourmet at 264 S Mission Dr, Blossom Market Hall, San Gabriel, CA. Hours, phone, directions, and general inquiries.',
+  alternates: { canonical: '/contact' },
 }
-
-const hours = [
-  { days: 'Wednesday – Thursday', time: '11am – 8pm' },
-  { days: 'Friday – Saturday',    time: '11am – 9pm' },
-  { days: 'Sunday',               time: '11am – 8pm' },
-  { days: 'Monday – Tuesday',     time: 'Closed', muted: true },
-]
 
 export default function ContactPage() {
   return (

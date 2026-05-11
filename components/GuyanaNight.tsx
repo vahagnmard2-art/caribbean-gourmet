@@ -1,6 +1,10 @@
 import Link from 'next/link'
 
 export function GuyanaNight() {
+  const now = new Date()
+  const thisYearJuly26 = new Date(now.getFullYear(), 6, 26)
+  const eventYear = now > thisYearJuly26 ? now.getFullYear() + 1 : now.getFullYear()
+
   return (
     <section
       aria-labelledby="guyana-night-heading"
@@ -35,7 +39,7 @@ export function GuyanaNight() {
               marginBottom: '1rem',
             }}
           >
-            Guyana Night — July 26
+            Guyana Night — July 26, {eventYear}
           </h2>
           <p
             style={{

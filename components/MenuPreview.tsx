@@ -157,7 +157,7 @@ export function MenuPreview() {
 
         <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
           <Link href="/menu" className="btn-primary" style={{ fontSize: '1rem' }}>
-            View Full Menu &amp; Order Online
+            View Full Menu
           </Link>
         </div>
       </div>

@@ -1,7 +1,7 @@
 export function ReviewContest() {
   return (
     <section
-      aria-labelledby="contest-heading"
+      aria-labelledby="reviews-cta-heading"
       style={{
         backgroundColor: 'var(--color-molasses)',
         borderTop: '1px solid var(--color-border-dark)',
@@ -20,10 +20,10 @@ export function ReviewContest() {
       >
         <div>
           <span className="section-label" style={{ marginBottom: '0.5rem' }}>
-            Win $500
+            Leave a Review
           </span>
           <h2
-            id="contest-heading"
+            id="reviews-cta-heading"
             style={{
               fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
               color: 'var(--color-coconut)',
@@ -32,7 +32,7 @@ export function ReviewContest() {
               marginBottom: '0.75rem',
             }}
           >
-            Write a Review. Win $500.
+            Loved Your Meal? Tell Someone.
           </h2>
           <p
             style={{
@@ -42,8 +42,8 @@ export function ReviewContest() {
               maxWidth: '44ch',
             }}
           >
-            Leave us a review on Google or Yelp and you&rsquo;re automatically entered
-            to win $500. We draw a winner quarterly — next drawing July 1.
+            Your honest review helps more people discover authentic Caribbean cooking.
+            We read every single one.
           </p>
         </div>
 

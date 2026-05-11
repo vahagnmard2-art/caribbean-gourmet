@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import {
   Playfair_Display,
-  DM_Serif_Display,
   Plus_Jakarta_Sans,
   Space_Grotesk,
 } from 'next/font/google'
@@ -13,14 +12,6 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   style: ['normal', 'italic'],
   variable: '--font-playfair',
-  display: 'swap',
-})
-
-const dmSerif = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
-  variable: '--font-dm-serif',
   display: 'swap',
 })
 
@@ -38,6 +29,7 @@ const grotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.caribbeangourmet.co'),
+  alternates: { canonical: 'https://www.caribbeangourmet.co' },
   title: {
     template: '%s | Caribbean Gourmet — San Gabriel, CA',
     default:
@@ -45,19 +37,6 @@ export const metadata: Metadata = {
   },
   description:
     "Slow-braised oxtail, handmade roti, jerk chicken, and fresh Guyanese pastries. Chef Yonette Alleyne's Caribbean Gourmet at Blossom Market Hall, San Gabriel. Dine-in, catering, and Caribbean food products.",
-  keywords: [
-    'Caribbean restaurant San Gabriel',
-    'Guyanese food Los Angeles',
-    'West Indian catering San Gabriel Valley',
-    'oxtail San Gabriel',
-    'roti Los Angeles',
-    'Blossom Market Hall food',
-    'Caribbean catering LA',
-    'Guyanese restaurant SGV',
-    'authentic Caribbean food',
-    'Yonette Alleyne',
-    'jerk chicken San Gabriel',
-  ],
   openGraph: {
     title: 'Caribbean Gourmet — Authentic Guyanese & Caribbean Food in San Gabriel',
     description:
@@ -136,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmSerif.variable} ${jakarta.variable} ${grotesk.variable}`}
+      className={`${playfair.variable} ${jakarta.variable} ${grotesk.variable}`}
     >
       <head>
         <script

@@ -127,7 +127,7 @@ export function VIPSignup() {
                 role="alert"
                 style={{
                   fontSize: '0.875rem',
-                  color: 'var(--color-text-primary-muted)',
+                  color: 'var(--color-saffron)',
                   textAlign: 'left',
                 }}
               >

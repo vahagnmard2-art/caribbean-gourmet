@@ -1,5 +1,3 @@
-'use client'
-
 const reviews = [
   {
     text: 'The food is cooked with heart and soul. Every bite tastes authentic and home-cooked.',

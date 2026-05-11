@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 type FormData = {
   name: string
@@ -77,10 +77,11 @@ export function CateringForm() {
     }))
   }
 
-  // Minimum date = tomorrow
-  const tomorrow = new Date()
-  tomorrow.setDate(tomorrow.getDate() + 1)
-  const minDate = tomorrow.toISOString().split('T')[0]
+  const minDate = useMemo(() => {
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    return tomorrow.toISOString().split('T')[0]
+  }, [])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -280,7 +281,7 @@ export function CateringForm() {
       {status === 'error' && (
         <p
           role="alert"
-          style={{ color: 'var(--color-text-body-compact)', fontSize: '0.875rem' }}
+          style={{ color: 'var(--color-saffron)', fontSize: '0.875rem' }}
         >
           Something went wrong. Please call us directly at{' '}
           <a href="tel:+16267704004" style={{ color: 'var(--color-gold)' }}>

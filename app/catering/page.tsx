@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Catering',
   description:
     'Caribbean and Guyanese catering for events across Los Angeles. Oxtail, jerk chicken, roti, handmade patties, and more. Halal, vegan, and gluten-free available. Request a custom quote.',
+  alternates: { canonical: '/catering' },
 }
 
 const packages = [
@@ -156,6 +157,19 @@ export default function CateringPage() {
               </div>
             ))}
           </div>
+
+          <p
+            style={{
+              fontFamily: 'var(--font-ui)',
+              fontSize: '0.875rem',
+              color: 'var(--color-text-primary-muted)',
+              marginBottom: 'clamp(3rem, 6vw, 5rem)',
+              marginTop: '-1rem',
+            }}
+          >
+            Pricing is based on menu selection, guest count, and logistics.
+            Request a quote below for an exact estimate.
+          </p>
 
           {/* Trust signals */}
           <div

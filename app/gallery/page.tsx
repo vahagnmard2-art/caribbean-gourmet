@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Gallery',
   description:
     'Photos of oxtail stew, jerk chicken, handmade roti, Guyanese pastries, and events at Caribbean Gourmet — Blossom Market Hall, San Gabriel, CA.',
+  alternates: { canonical: '/gallery' },
 }
 
 export default function GalleryPage() {

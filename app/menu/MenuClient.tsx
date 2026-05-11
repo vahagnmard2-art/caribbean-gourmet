@@ -1,6 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
-import gsap from 'gsap'
+import { useState } from 'react'
 import { menuItems, categoryLabels, dietaryLabels, type MenuCategory } from '@/lib/menu-data'
 
 const ALL = 'all' as const
@@ -16,30 +15,11 @@ const filters: { value: Filter; label: string }[] = [
 ]
 
 export function MenuClient() {
-  const [active, setActive]   = useState<Filter>('all')
-  const containerRef          = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState<Filter>('all')
 
   const visible = active === 'all'
     ? menuItems
     : menuItems.filter((item) => item.category === active)
-
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-    const cards = container.querySelectorAll<HTMLElement>('.menu-card')
-    if (cards.length === 0) return
-
-    const ctx = gsap.context(() => {
-      gsap.from(Array.from(cards), {
-        opacity: 0,
-        y: 20,
-        duration: 0.4,
-        stagger: 0.04,
-        ease: 'power2.out',
-      })
-    })
-    return () => ctx.revert()
-  }, [active])
 
   return (
     <div style={{ paddingBlock: '2.5rem' }}>
@@ -48,7 +28,7 @@ export function MenuClient() {
         className="scrollbar-none"
         style={{
           position: 'sticky',
-          top: '4.5rem',
+          top: 'var(--nav-height)',
           zIndex: 10,
           backgroundColor: 'var(--color-molasses)',
           borderBottom: '1px solid var(--color-border-dark)',
@@ -87,8 +67,7 @@ export function MenuClient() {
       </div>
 
       {/* Items */}
-      <div ref={containerRef} className="container" style={{ paddingTop: '2.5rem' }}>
-        {/* Group by category when showing all */}
+      <div className="container" style={{ paddingTop: '2.5rem' }}>
         {active === 'all' ? (
           Object.entries(categoryLabels).map(([cat, catLabel]) => {
             const items = menuItems.filter((item) => item.category === cat)

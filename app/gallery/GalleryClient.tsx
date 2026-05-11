@@ -96,7 +96,7 @@ export function GalleryClient() {
         className="scrollbar-none"
         style={{
           position: 'sticky',
-          top: '4.5rem',
+          top: 'var(--nav-height)',
           zIndex: 10,
           backgroundColor: 'var(--color-molasses)',
           borderBottom: '1px solid var(--color-border-dark)',

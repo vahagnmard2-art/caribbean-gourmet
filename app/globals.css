@@ -16,15 +16,18 @@
   --color-border-dark:  #3D2410;
 
   /* ── Semantic text-on-dark opacity scale ── */
-  --color-text-secondary:     rgba(250, 248, 242, 0.72); /* card body, section descriptions */
-  --color-text-body-compact:  rgba(250, 248, 242, 0.65); /* compact paragraph text in dense card/list layouts */
-  --color-text-primary-muted: rgba(250, 248, 242, 0.55); /* captions, disclaimers, metadata */
+  --color-text-secondary:     rgba(250, 248, 242, 0.72);
+  --color-text-body-compact:  rgba(250, 248, 242, 0.65);
+  --color-text-primary-muted: rgba(250, 248, 242, 0.55);
 
   /* ── Fonts ── */
   --font-display: var(--font-playfair), Georgia, serif;
-  --font-serif:   var(--font-dm-serif), Georgia, serif;
+  --font-serif:   var(--font-playfair), Georgia, serif;
   --font-sans:    var(--font-jakarta), system-ui, sans-serif;
   --font-ui:      var(--font-grotesk), system-ui, sans-serif;
+
+  /* ── Layout ── */
+  --nav-height: 4.5rem;
 }
 
 @layer base {
@@ -140,6 +143,7 @@
     padding-inline: clamp(1.25rem, 5vw, 3rem);
   }
 
+  /* Section eyebrow labels — saffron to differentiate from interactive gold */
   .section-label {
     display: block;
     font-family: var(--font-ui);
@@ -147,7 +151,7 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-gold);
+    color: var(--color-saffron);
   }
 
   .section-pad {
@@ -168,7 +172,6 @@
     animation-play-state: paused;
   }
 
-  /* Hide scrollbars on filter tabs (cross-browser) */
   .scrollbar-none {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -177,7 +180,6 @@
     display: none;
   }
 
-  /* Reusable hover-state helpers (for server components that can't use JS event handlers) */
   .gold-link {
     color: var(--color-gold);
     transition: color 150ms ease;
@@ -216,7 +218,6 @@
   .gallery-card img { transition: transform 300ms ease; }
   .gallery-card:hover img { transform: scale(1.03); }
 
-  /* Responsive nav visibility — sourced from Nav.tsx */
   @media (min-width: 768px) {
     .hidden-mobile { display: flex !important; }
     .show-mobile   { display: none  !important; }

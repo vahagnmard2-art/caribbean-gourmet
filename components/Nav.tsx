@@ -1,21 +1,14 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
-
-const links = [
-  { href: '/menu',     label: 'Menu' },
-  { href: '/catering', label: 'Catering' },
-  { href: '/about',    label: 'Our Story' },
-  { href: '/gallery',  label: 'Gallery' },
-  { href: '/contact',  label: 'Contact' },
-]
+import { useState, useEffect, useRef } from 'react'
+import { navLinks } from '@/lib/site-config'
 
 export function Nav() {
-  const pathname = usePathname()
+  const pathname    = usePathname()
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null)
+  const [open, setOpen]         = useState(false)
+  const firstLinkRef            = useRef<HTMLAnchorElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -27,6 +20,12 @@ export function Nav() {
     // eslint-disable-next-line react-compiler/react-compiler
     setOpen(false)
   }, [pathname])
+
+  useEffect(() => {
+    if (open && firstLinkRef.current) {
+      firstLinkRef.current.focus()
+    }
+  }, [open])
 
   return (
     <header
@@ -42,7 +41,10 @@ export function Nav() {
         boxShadow: scrolled ? '0 1px 0 rgba(61,36,16,0.6)' : 'none',
       }}
     >
-      <nav className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '4.5rem' }}>
+      <nav
+        className="container"
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 'var(--nav-height)' }}
+      >
         {/* Logo */}
         <Link
           href="/"
@@ -71,7 +73,7 @@ export function Nav() {
           }}
           className="hidden-mobile"
         >
-          {links.map(({ href, label }) => {
+          {navLinks.map(({ href, label }) => {
             const isActive = pathname === href
             return (
               <li key={href}>
@@ -81,11 +83,9 @@ export function Nav() {
                     fontFamily: 'var(--font-ui)',
                     fontSize: '0.875rem',
                     fontWeight: isActive ? 600 : 500,
-                    color: isActive || hoveredLink === href ? 'var(--color-gold)' : 'rgba(250,248,242,0.8)',
+                    color: isActive ? 'var(--color-gold)' : 'rgba(250,248,242,0.8)',
                     transition: 'color 150ms ease',
                   }}
-                  onMouseEnter={() => setHoveredLink(href)}
-                  onMouseLeave={() => setHoveredLink(null)}
                 >
                   {label}
                 </Link>
@@ -96,7 +96,7 @@ export function Nav() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Link href="/menu" className="btn-primary hidden-mobile" style={{ fontSize: '0.875rem', padding: '0.6875rem 1.25rem' }}>
-            Order Now
+            View Menu
           </Link>
 
           {/* Hamburger */}
@@ -151,21 +151,25 @@ export function Nav() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — animated with max-height + opacity */}
       <div
         id="mobile-menu"
+        aria-hidden={!open}
         style={{
-          display: open ? 'block' : 'none',
+          overflow: 'hidden',
+          maxHeight: open ? '480px' : '0',
+          opacity: open ? 1 : 0,
+          transition: 'max-height 280ms ease, opacity 200ms ease',
           backgroundColor: 'var(--color-obsidian)',
           borderTop: '1px solid var(--color-border-dark)',
-          padding: '1.5rem',
         }}
       >
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          {links.map(({ href, label }) => (
+        <ul style={{ listStyle: 'none', margin: 0, padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {navLinks.map(({ href, label }, i) => (
             <li key={href}>
               <Link
                 href={href}
+                ref={i === 0 ? firstLinkRef : undefined}
                 onClick={() => setOpen(false)}
                 style={{
                   display: 'block',
@@ -181,16 +185,17 @@ export function Nav() {
             </li>
           ))}
         </ul>
-        <Link
-          href="/menu"
-          className="btn-primary"
-          onClick={() => setOpen(false)}
-          style={{ marginTop: '1.5rem', width: '100%' }}
-        >
-          Order Now
-        </Link>
+        <div style={{ padding: '0 1.5rem 1.5rem' }}>
+          <Link
+            href="/menu"
+            className="btn-primary"
+            onClick={() => setOpen(false)}
+            style={{ width: '100%' }}
+          >
+            View Menu
+          </Link>
+        </div>
       </div>
-
     </header>
   )
 }

@@ -22,7 +22,7 @@
 
   /* ── Fonts ── */
   --font-display: var(--font-playfair), Georgia, serif;
-  --font-serif:   var(--font-playfair), Georgia, serif;
+  --font-serif:   var(--font-grotesk), system-ui, sans-serif;
   --font-sans:    var(--font-jakarta), system-ui, sans-serif;
   --font-ui:      var(--font-grotesk), system-ui, sans-serif;
 

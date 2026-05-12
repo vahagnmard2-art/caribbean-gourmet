@@ -102,22 +102,45 @@ export function ReviewsMarquee() {
       aria-labelledby="reviews-heading"
       style={{ overflow: 'hidden' }}
     >
-      <div className="container" style={{ marginBottom: '2.5rem' }}>
-        <p className="section-label" style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
-          What Guests Are Saying
+      <div className="container" style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+        <p className="section-label" id="reviews-heading" style={{ marginBottom: '1.5rem' }}>
+          From Our Regulars
         </p>
-        <p
-          id="reviews-heading"
+        <div
           style={{
-            textAlign: 'center',
-            fontFamily: 'var(--font-ui)',
-            fontSize: '0.9375rem',
-            color: 'var(--color-text-primary-muted)',
+            display: 'inline-flex',
+            alignItems: 'baseline',
+            gap: '1rem',
+            justifyContent: 'center',
           }}
         >
-          <span style={{ color: 'var(--color-gold)' }}>★★★★★</span>&ensp;
-          4.8 average across 471+ reviews on Google &amp; Yelp
-        </p>
+          <span
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(4rem, 10vw, 7rem)',
+              fontWeight: 700,
+              color: 'var(--color-gold)',
+              lineHeight: 1,
+            }}
+          >
+            4.8
+          </span>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ color: 'var(--color-gold)', fontSize: '1.125rem', marginBottom: '0.25rem' }}>
+              ★★★★★
+            </div>
+            <p
+              style={{
+                fontFamily: 'var(--font-ui)',
+                fontSize: '0.875rem',
+                color: 'var(--color-text-primary-muted)',
+                lineHeight: 1.4,
+              }}
+            >
+              471+ reviews on<br />Google &amp; Yelp
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Live region for screen readers — shows first two reviews statically */}

@@ -39,7 +39,7 @@ export function Pillars() {
     <section className="section-pad" aria-labelledby="pillars-heading">
       <div className="container">
         <p className="section-label" style={{ textAlign: 'center', marginBottom: '0.75rem' }}>
-          How We Serve You
+          Dine. Cater. Bring Home.
         </p>
         <h2
           id="pillars-heading"

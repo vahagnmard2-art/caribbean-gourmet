@@ -40,11 +40,23 @@ export default function MenuPage() {
               color: 'var(--color-text-secondary)',
               maxWidth: '50ch',
               lineHeight: 1.6,
-              marginBottom: '1.5rem',
+              marginBottom: '0.75rem',
             }}
           >
             Everything is made from scratch. Weekend specials — doubles, crab soup,
             and baked mac &amp; cheese — are available Friday through Sunday only.
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-ui)',
+              fontSize: '0.8125rem',
+              color: 'var(--color-text-primary-muted)',
+              marginBottom: '1.5rem',
+            }}
+          >
+            Prices are posted at the stall. Call{' '}
+            <a href="tel:+16267704004" style={{ color: 'var(--color-gold)' }}>(626) 770-4004</a>
+            {' '}for current availability.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center' }}>

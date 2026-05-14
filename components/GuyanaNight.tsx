@@ -2,8 +2,9 @@ import Link from 'next/link'
 
 export function GuyanaNight() {
   const now = new Date()
-  const thisYearJuly26 = new Date(now.getFullYear(), 6, 26)
-  const eventYear = now > thisYearJuly26 ? now.getFullYear() + 1 : now.getFullYear()
+  // Flip to next year starting July 27 — show current year's date on the day itself
+  const dayAfterEvent = new Date(now.getFullYear(), 6, 27)
+  const eventYear = now >= dayAfterEvent ? now.getFullYear() + 1 : now.getFullYear()
 
   return (
     <section

@@ -12,6 +12,11 @@ type FormData = {
   message: string
 }
 
+type FieldErrors = Partial<Record<keyof FormData, string>>
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const phoneRegex = /^[\d\s+\(\)\-]{7,20}$/
+
 const eventTypes = [
   'Birthday Party',
   'Wedding Reception',
@@ -52,20 +57,36 @@ const labelStyle: React.CSSProperties = {
   letterSpacing: '0.02em',
 }
 
+const errorStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-ui)',
+  fontSize: '0.8125rem',
+  color: 'var(--color-saffron)',
+  marginTop: '0.3rem',
+}
+
 export function CateringForm() {
   const [form, setForm] = useState<FormData>({
     name: '', email: '', phone: '', eventType: '',
     date: '', guestCount: '', dietary: [], message: '',
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errors, setErrors] = useState<FieldErrors>({})
   const [focusedField, setFocusedField] = useState<string | null>(null)
 
-  function fieldStyle(id: string): React.CSSProperties {
-    return { ...inputStyle, borderColor: focusedField === id ? 'var(--color-gold)' : undefined }
+  function fieldStyle(id: string, hasError?: boolean): React.CSSProperties {
+    return {
+      ...inputStyle,
+      borderColor: hasError
+        ? 'var(--color-saffron)'
+        : focusedField === id
+        ? 'var(--color-gold)'
+        : undefined,
+    }
   }
 
   function handleChange(field: keyof FormData, value: string) {
     setForm((prev) => ({ ...prev, [field]: value }))
+    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }))
   }
 
   function handleDietary(value: string, checked: boolean) {
@@ -83,8 +104,48 @@ export function CateringForm() {
     return tomorrow.toISOString().split('T')[0]
   }, [])
 
+  const maxDate = useMemo(() => {
+    const twoYears = new Date()
+    twoYears.setFullYear(twoYears.getFullYear() + 2)
+    return twoYears.toISOString().split('T')[0]
+  }, [])
+
+  function validate(): boolean {
+    const e: FieldErrors = {}
+
+    if (!form.name.trim()) {
+      e.name = 'Full name is required'
+    }
+    if (!form.email.trim()) {
+      e.email = 'Email address is required'
+    } else if (!emailRegex.test(form.email)) {
+      e.email = 'Enter a valid email address'
+    }
+    if (!form.phone.trim()) {
+      e.phone = 'Phone number is required'
+    } else if (!phoneRegex.test(form.phone.trim())) {
+      e.phone = 'Enter a valid phone number'
+    }
+    if (!form.eventType) {
+      e.eventType = 'Select an event type'
+    }
+    if (!form.date) {
+      e.date = 'Event date is required'
+    }
+    const guests = parseInt(form.guestCount, 10)
+    if (!form.guestCount.trim()) {
+      e.guestCount = 'Guest count is required'
+    } else if (isNaN(guests) || guests < 1) {
+      e.guestCount = 'Enter a valid number of guests (minimum 1)'
+    }
+
+    setErrors(e)
+    return Object.keys(e).length === 0
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    if (!validate()) return
     setStatus('loading')
     try {
       const res = await fetch('/api/catering-inquiry', {
@@ -155,8 +216,11 @@ export function CateringForm() {
             value={form.name}
             onChange={(e) => handleChange('name', e.target.value)}
             onFocus={() => setFocusedField('cf-name')} onBlur={() => setFocusedField(null)}
-            style={fieldStyle('cf-name')}
+            style={fieldStyle('cf-name', !!errors.name)}
+            aria-describedby={errors.name ? 'cf-name-error' : undefined}
+            aria-invalid={!!errors.name}
           />
+          {errors.name && <p id="cf-name-error" style={errorStyle}>{errors.name}</p>}
         </div>
         <div>
           <label htmlFor="cf-email" style={labelStyle}>Email Address *</label>
@@ -166,8 +230,11 @@ export function CateringForm() {
             value={form.email}
             onChange={(e) => handleChange('email', e.target.value)}
             onFocus={() => setFocusedField('cf-email')} onBlur={() => setFocusedField(null)}
-            style={fieldStyle('cf-email')}
+            style={fieldStyle('cf-email', !!errors.email)}
+            aria-describedby={errors.email ? 'cf-email-error' : undefined}
+            aria-invalid={!!errors.email}
           />
+          {errors.email && <p id="cf-email-error" style={errorStyle}>{errors.email}</p>}
         </div>
       </div>
 
@@ -181,8 +248,11 @@ export function CateringForm() {
             value={form.phone}
             onChange={(e) => handleChange('phone', e.target.value)}
             onFocus={() => setFocusedField('cf-phone')} onBlur={() => setFocusedField(null)}
-            style={fieldStyle('cf-phone')}
+            style={fieldStyle('cf-phone', !!errors.phone)}
+            aria-describedby={errors.phone ? 'cf-phone-error' : undefined}
+            aria-invalid={!!errors.phone}
           />
+          {errors.phone && <p id="cf-phone-error" style={errorStyle}>{errors.phone}</p>}
         </div>
         <div>
           <label htmlFor="cf-event-type" style={labelStyle}>Event Type *</label>
@@ -191,13 +261,16 @@ export function CateringForm() {
             value={form.eventType}
             onChange={(e) => handleChange('eventType', e.target.value)}
             onFocus={() => setFocusedField('cf-event-type')} onBlur={() => setFocusedField(null)}
-            style={{ ...fieldStyle('cf-event-type'), cursor: 'pointer' }}
+            style={{ ...fieldStyle('cf-event-type', !!errors.eventType), cursor: 'pointer' }}
+            aria-describedby={errors.eventType ? 'cf-event-type-error' : undefined}
+            aria-invalid={!!errors.eventType}
           >
             <option value="" disabled>Select type</option>
             {eventTypes.map((t) => (
               <option key={t} value={t}>{t}</option>
             ))}
           </select>
+          {errors.eventType && <p id="cf-event-type-error" style={errorStyle}>{errors.eventType}</p>}
         </div>
       </div>
 
@@ -208,22 +281,29 @@ export function CateringForm() {
           <input
             id="cf-date" type="date" required
             min={minDate}
+            max={maxDate}
             value={form.date}
             onChange={(e) => handleChange('date', e.target.value)}
             onFocus={() => setFocusedField('cf-date')} onBlur={() => setFocusedField(null)}
-            style={fieldStyle('cf-date')}
+            style={fieldStyle('cf-date', !!errors.date)}
+            aria-describedby={errors.date ? 'cf-date-error' : undefined}
+            aria-invalid={!!errors.date}
           />
+          {errors.date && <p id="cf-date-error" style={errorStyle}>{errors.date}</p>}
         </div>
         <div>
           <label htmlFor="cf-guests" style={labelStyle}>Number of Guests *</label>
           <input
             id="cf-guests" type="number" required
-            min="5" placeholder="e.g. 40"
+            min="1" max="9999" placeholder="e.g. 40"
             value={form.guestCount}
             onChange={(e) => handleChange('guestCount', e.target.value)}
             onFocus={() => setFocusedField('cf-guests')} onBlur={() => setFocusedField(null)}
-            style={fieldStyle('cf-guests')}
+            style={fieldStyle('cf-guests', !!errors.guestCount)}
+            aria-describedby={errors.guestCount ? 'cf-guests-error' : undefined}
+            aria-invalid={!!errors.guestCount}
           />
+          {errors.guestCount && <p id="cf-guests-error" style={errorStyle}>{errors.guestCount}</p>}
         </div>
       </div>
 

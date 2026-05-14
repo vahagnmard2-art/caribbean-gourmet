@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-type GalleryCategory = 'all' | 'food' | 'events' | 'kitchen'
+type GalleryCategory = 'all' | 'food' | 'events'
 
 const photos = [
   {

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { navLinks, hours, BUSINESS } from '@/lib/site-config'
+import { CurrentYear } from './CurrentYear'
 
 const socialLinks = [
   { href: BUSINESS.instagram, label: 'Instagram' },
@@ -7,8 +8,6 @@ const socialLinks = [
 ]
 
 export function Footer() {
-  const year = new Date().getFullYear()
-
   return (
     <footer
       style={{
@@ -185,7 +184,7 @@ export function Footer() {
               color: 'var(--color-text-primary-muted)',
             }}
           >
-            &copy; {year} Caribbean Gourmet. All rights reserved.
+            &copy; <CurrentYear /> Caribbean Gourmet. All rights reserved.
           </p>
         </div>
       </div>

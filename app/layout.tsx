@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
+        width: 900,
+        height: 1200,
         alt: 'Caribbean Gourmet oxtail stew and roti at Blossom Market Hall, San Gabriel CA',
       },
     ],
@@ -101,6 +101,12 @@ const structuredData = {
       dayOfWeek: ['Friday', 'Saturday'],
       opens: '11:00',
       closes: '21:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday'],
+      opens: '00:00',
+      closes: '00:00',
     },
   ],
   aggregateRating: {

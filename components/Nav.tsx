@@ -162,6 +162,7 @@ export function Nav() {
       <div
         id="mobile-menu"
         aria-hidden={!open}
+        inert={!open}
         style={{
           overflow: 'hidden',
           maxHeight: open ? '480px' : '0',

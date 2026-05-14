@@ -103,9 +103,9 @@ export function ReviewsMarquee() {
       style={{ overflow: 'hidden' }}
     >
       <div className="container" style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
-        <p className="section-label" id="reviews-heading" style={{ marginBottom: '1.5rem' }}>
+        <h2 className="section-label" id="reviews-heading" style={{ marginBottom: '1.5rem' }}>
           From Our Regulars
-        </p>
+        </h2>
         <div
           style={{
             display: 'inline-flex',

@@ -62,7 +62,7 @@ const pressFeatures = [
   {
     outlet: 'PureWow',
     description: 'Named one of the Best Caribbean Restaurants in Los Angeles.',
-    href: 'https://www.purewow.com/',
+    href: 'https://www.purewow.com/food/best-caribbean-restaurants-in-los-angeles',
   },
   {
     outlet: 'MySGV',
